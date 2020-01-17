@@ -1,6 +1,6 @@
 {
   "name": "ecs-get-task-definition",
-  "description": "Queries AWS for the latest task definition",
+  "description": "Queries AWS for the latest task definition for a particular family",
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {

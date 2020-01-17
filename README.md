@@ -1,12 +1,12 @@
 # ECS Get Task Definition
 
-Queries AWS for the latest task definition
+Queries AWS for the latest task definition for a particular family.
 
 ## Inputs
 
-### `task-definition`
+### `task-definition-family`
 
-**Required** The name of the task definition to query.
+**Required** The family name of the task definition to query.
 
 ## Outputs
 
@@ -22,4 +22,4 @@ Name of a temporary file that holds the JSON representation of the task definiti
 
     uses: respondentinc/ecs-get-task-definition@v1
     with:
-      task-definition: 'hello_world'
+      task-definition-family: 'hello_world'

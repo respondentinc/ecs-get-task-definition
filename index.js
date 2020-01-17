@@ -5,10 +5,11 @@ const tmp = require('tmp');
 
 async function run() {
     try {
-        const taskDefinition = core.getInput('task-definition');
+        const taskDefinitionFamily = core.getInput('task-definition-family');
 
         const ecs = new aws.ECS();
-        const response = await ecs.describeTaskDefinition({ taskDefinition }).promise();
+        const describeParameters = { taskDefinition: taskDefinitionFamily };
+        const response = await ecs.describeTaskDefinition(describeParameters).promise();
 
         const json = JSON.stringify(response.taskDefinition);
         core.setOutput('json', json);
