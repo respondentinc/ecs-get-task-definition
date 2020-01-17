@@ -27,3 +27,8 @@ async function run() {
 }
 
 module.exports = run;
+
+/* istanbul ignore next */
+if (require.main === module) {
+    run();
+}
