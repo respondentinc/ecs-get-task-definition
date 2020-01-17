@@ -23,3 +23,7 @@ Name of a temporary file that holds the JSON representation of the task definiti
     uses: respondentinc/ecs-get-task-definition@v1
     with:
       task-definition-family: 'hello_world'
+
+## IAM permissions required
+
+- `ecs:DescribeTaskDefinition`
