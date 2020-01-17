@@ -1,0 +1,12 @@
+name: 'ECS Get Task Definition'
+description: 'Queries AWS for the latest task definition'
+inputs:
+  task-definition:
+    description: 'Name of the task definition'
+    required: true
+outputs:
+  json:
+    description: 'Task definition in JSON format'
+runs:
+  using: 'node12'
+  main: 'index.js'
