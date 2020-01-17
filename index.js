@@ -13,10 +13,12 @@ async function run() {
 
         const json = JSON.stringify(response.taskDefinition);
         core.setOutput('json', json);
+        core.info(`json output: ${json}`);
 
         const tmpFile = tmp.fileSync();
         fs.writeFileSync(tmpFile.name, json);
         core.setOutput('file', tmpFile.name);
+        core.info(`file output: ${tmpFile.name}`);
 
     } catch (error) {
         core.debug(error.stack);
