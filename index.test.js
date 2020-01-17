@@ -10,7 +10,7 @@ jest.mock('aws-sdk', () => ({
 
 const core = require('@actions/core');
 const fixture = require('./sample-task-definition');
-const action = require('.');
+const action = require('./index');
 
 beforeEach(() => {
     jest.clearAllMocks();
