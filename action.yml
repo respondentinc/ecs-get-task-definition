@@ -11,4 +11,4 @@ outputs:
     description: 'Name of a temporary file that holds the JSON representation of the task definition'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
