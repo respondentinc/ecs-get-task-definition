@@ -11,11 +11,17 @@ async function run() {
         const describeParameters = { taskDefinition: taskDefinitionFamily };
         const response = await ecs.describeTaskDefinition(describeParameters).promise();
 
-        const json = JSON.stringify(response.taskDefinition);
+        const json = JSON.stringify(response.taskDefinition, null, 2);
         core.setOutput('json', json);
         console.info(`json output: ${json}`);
 
-        const tmpFile = tmp.fileSync();
+        const tmpFile = tmp.fileSync({
+            dir: process.env.RUNNER_TEMP,
+            prefix: 'task-definition-',
+            postfix: '.json',
+            keep: true,
+            discardDescriptor: true
+        });
         fs.writeFileSync(tmpFile.name, json);
         core.setOutput('file', tmpFile.name);
         console.info(`file output: ${tmpFile.name}`);
