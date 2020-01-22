@@ -24,7 +24,7 @@ beforeEach(() => {
     });
 });
 
-test('works', async () => {
+test('outputs json as a string', async () => {
     const taskDefinitionFamily = 'hello_world';
     core.getInput = jest.fn().mockReturnValue(taskDefinitionFamily);
 
@@ -33,5 +33,15 @@ test('works', async () => {
     expect(core.setFailed).not.toBeCalled();
     expect(mockECSDescribeTaskDefinition).toBeCalledWith({ taskDefinition: taskDefinitionFamily });
     expect(core.setOutput).toHaveBeenCalledWith('json', expect.any(String));
+});
+
+test('outputs the path to a file with the json', async () => {
+    const taskDefinitionFamily = 'hello_world';
+    core.getInput = jest.fn().mockReturnValue(taskDefinitionFamily);
+
+    await action();
+
+    expect(core.setFailed).not.toBeCalled();
+    expect(mockECSDescribeTaskDefinition).toBeCalledWith({ taskDefinition: taskDefinitionFamily });
     expect(core.setOutput).toHaveBeenCalledWith('file', expect.any(String));
 });
