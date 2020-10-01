@@ -10,7 +10,7 @@
     "build": "ncc build index.js"
   },
   "dependencies": {
-    "@actions/core": "^1.2.1",
+    "@actions/core": "^1.2.6",
     "aws-sdk": "^2.605.0",
     "tmp": "^0.1.0"
   },
